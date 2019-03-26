@@ -2629,7 +2629,7 @@ defmodule Explorer.Chain do
     Repo.all(query, timeout: :infinity)
   end
 
-  def list_decompiled_contracts(limit, offset) do
+  def list_decompiled_contracts(limit, offset, not_decompiled_with_version \\ nil) do
     query =
       from(
         address in Address,
@@ -2641,7 +2641,16 @@ defmodule Explorer.Chain do
         offset: ^offset
       )
 
-    Repo.all(query)
+    filtered_query =
+      if not_decompiled_with_version do
+        from([_, decompiled_smart_contract] in query,
+          where: decompiled_smart_contract.decompiler_version != ^not_decompiled_with_version
+        )
+      else
+        query
+      end
+
+    Repo.all(filtered_query)
   end
 
   def list_verified_contracts(limit, offset) do
