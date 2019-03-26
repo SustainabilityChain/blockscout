@@ -14,7 +14,11 @@
  - [#1639](https://github.com/poanetwork/blockscout/pull/1614) - Optimize token holder count updates when importing address current balances
  - [#1643](https://github.com/poanetwork/blockscout/pull/1643) - Set internal_transactions_indexed_at for empty blocks
  - [#1647](https://github.com/poanetwork/blockscout/pull/1647) - Fix typo in view
+<<<<<<< HEAD
  - [#1650](https://github.com/poanetwork/blockscout/pull/1650) - Add petersburg evm version to smart contract verifier
+=======
+ - [#1657](https://github.com/poanetwork/blockscout/pull/1657) - Force consensus loss for parent block if its hash mismatches parent_hash
+>>>>>>> 56b4f743... Force consensus loss for parent block if its hash mismatches parent_hash
 
 ### Chore
 
